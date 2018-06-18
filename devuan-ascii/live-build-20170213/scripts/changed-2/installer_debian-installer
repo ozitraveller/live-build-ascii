@@ -379,7 +379,7 @@ Echo_message "######### 5"
 
 
 		rm -f cache/contents.chroot/contents.${LB_PARENT_DISTRIBUTION}.${LB_ARCHITECTURES}
-		touch cache/contents.chroot/contents.${LB_PARENT_DISTRIBUTION}.${LIVE_IMAGE_ARCHITECTURE}
+		# touch cache/contents.chroot/contents.${LB_PARENT_DISTRIBUTION}.${LB_ARCHITECTURES}	
 
 		for _CONTENT in ${_CONTENTS}
 		do
@@ -409,10 +409,12 @@ Echo_message "######### 6"
 		then
 			# FIXME: account for the fact that PARENT_DISTRIBUTION and DISTRIBUTION might be the same (to not have overlapping cache files for contents).
 Echo_message "######### 7"
-			_CONTENTS="$(for _ARCHIVE_AREA in ${LB_ARCHIVE_AREAS}; do echo ${LB_MIRROR_CHROOT}/dists/${LB_DISTRIBUTION}/${_ARCHIVE_AREA}/Contents-${LB_ARCHITECTURES}.gz; done)"
+# OZI
+			_CONTENTS=""
+			#_CONTENTS="$(for _ARCHIVE_AREA in ${LB_ARCHIVE_AREAS}; do echo ${LB_MIRROR_CHROOT}/dists/${LB_DISTRIBUTION}/${_ARCHIVE_AREA}/Contents-${LB_ARCHITECTURES}.gz; done)"
 
 			rm -f cache/contents.chroot/contents.${LB_DISTRIBUTION}.${LB_ARCHITECTURES}
-			touch cache/contents.chroot/contents.${LB_DISTRIBUTION}.${LIVE_IMAGE_ARCHITECTURE}
+			# touch cache/contents.chroot/contents.${LB_DISTRIBUTION}.${LB_ARCHITECTURES}
 
 			for _CONTENT in ${_CONTENTS}
 			do
